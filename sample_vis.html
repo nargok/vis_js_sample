@@ -44,6 +44,14 @@
       var options = {
       };
       var network = new vis.Network(container, data, options)
+      // clickイベントを定義する
+      network.on("click", function(params) {
+        if (params.nodes.length == 1) {
+          var nodeId = params.nodes[0];
+          var node = nodes.get(nodeId);
+          console.log(node.label + "がクリックされました");
+        }
+      });
     </script>
 </body>
 </html>
